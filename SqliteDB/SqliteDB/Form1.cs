@@ -17,29 +17,16 @@ namespace SqliteDB
     public partial class Form1 : Form
     {
         private BLL.PersonaBLL _personaBLL;
+
         public Form1()
         {
             InitializeComponent();
             _personaBLL = new PersonaBLL();
         }
-
-        private void btnguardar_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            BO.PersonaBO objeto = new BO.PersonaBO()
-            {
-                Nombre = txtnombre.Text,
-                Apellido = txtapellido.Text,
-                Telefono = txttelefono.Text
-            };
-
-            bool respuesta = _personaBLL.Guardar(objeto);
-
-            if (respuesta)
-            {
-                limpiar();
-                mostrar_personas();
-            }
-        }
+            mostrar_personas();
+        }        
 
         public void limpiar()
         {
@@ -54,16 +41,11 @@ namespace SqliteDB
         {
             dgvpersonas.DataSource = null;
             dgvpersonas.DataSource = PersonaDAL.Instancia.Listar();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            mostrar_personas();
-        }
+        }        
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            BO.PersonaBO objeto = new BO.PersonaBO()
+            BO.PersonaBO person = new BO.PersonaBO()
             {
                 IdPersona = int.Parse(txtidpersona.Text),
                 Nombre = txtnombre.Text,
@@ -71,9 +53,9 @@ namespace SqliteDB
                 Telefono = txttelefono.Text
             };
 
-            bool respuesta = PersonaDAL.Instancia.Editar(objeto);
+            bool ans = PersonaDAL.Instancia.Editar(person);
 
-            if (respuesta)
+            if (ans)
             {
                 limpiar();
                 mostrar_personas();
@@ -83,18 +65,37 @@ namespace SqliteDB
         private void btneliminar_Click(object sender, EventArgs e)
         {
             {
-                BO.PersonaBO objeto = new BO.PersonaBO()
+                BO.PersonaBO person = new BO.PersonaBO()
                 {
                     IdPersona = int.Parse(txtidpersona.Text)
                 };
 
-                bool respuesta = PersonaDAL.Instancia.Eliminar(objeto);
+                bool respuesta = PersonaDAL.Instancia.Eliminar(person);
 
                 if (respuesta)
                 {
                     limpiar();
                     mostrar_personas();
                 }
+            }
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+
+            BO.PersonaBO person = new BO.PersonaBO()
+            {
+                Nombre = txtnombre.Text,
+                Apellido = txtapellido.Text,
+                Telefono = txttelefono.Text
+            };
+
+            bool ans = _personaBLL.Guardar(person);
+
+            if (ans)
+            {
+                limpiar();
+                mostrar_personas();
             }
         }
     }

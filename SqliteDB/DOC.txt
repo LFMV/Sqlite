@@ -1,0 +1,16 @@
+https://sqlitebrowser.org/dl/
+
+1. dowload
+DB Browser for SQLite - PortableApp
+
+2. Creamos la base de datos y lo guardamos en el proyecto visual studio
+3. Incluir en el proyecto Visual studio
+4. Se cambian propiedades de DB 
+	4.1 accion de compilacion - Coontent
+	4.2 copiar si es posterior
+5. entrar a app.config
+  <connectionStrings>
+    <add name="cadena" connectionString="Data Source=.\PruebasDB.db;version=3;" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+6. Manager NuGet e instalamos System.Data.SQLite, EntityFramework
+
