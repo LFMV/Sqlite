@@ -15,18 +15,12 @@ namespace SqliteDB.DAL
     public class PersonaDAL
     {
         private static string cadena = ConfigurationManager.ConnectionStrings["SQLiteConnection"].ConnectionString;
-
         private static PersonaDAL _instancia = null;
-
         private dbConnectionSqlite conn;
-        private DataTable DtResult;
-        private SQLiteParameter[] SqliteParameters;
-        private SQLiteDataAdapter mySQLiteAdapter;
 
         public PersonaDAL()
         {
             conn = new dbConnectionSqlite();
-            DtResult = new DataTable();
         }
 
         public static PersonaDAL Instancia
