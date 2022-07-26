@@ -38,3 +38,4 @@ C:\GitHub\Sqlite\SqliteDB\SqliteDB\obj\Debug\SqliteDB.csproj.CoreCompileInputs.c
 C:\GitHub\Sqlite\SqliteDB\SqliteDB\obj\Debug\SqliteDB.csproj.CopyComplete
 C:\GitHub\Sqlite\SqliteDB\SqliteDB\obj\Debug\SqliteDB.exe
 C:\GitHub\Sqlite\SqliteDB\SqliteDB\obj\Debug\SqliteDB.pdb
+C:\GitHub\Sqlite\SqliteDB\SqliteDB\obj\Debug\SqliteDB.csproj.SuggestedBindingRedirects.cache

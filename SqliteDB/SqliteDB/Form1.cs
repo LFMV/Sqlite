@@ -40,7 +40,11 @@ namespace SqliteDB
         public void mostrar_personas()
         {
             dgvpersonas.DataSource = null;
-            dgvpersonas.DataSource = PersonaDAL.Instancia.Listar();
+            dgvpersonas.DataSource = _personaBLL.ShowAllUsers().DefaultView;
+
+
+            //GridView1.DataSource = dt;
+            //GridView1.DataBind();
         }        
 
         private void btneditar_Click(object sender, EventArgs e)
@@ -53,7 +57,7 @@ namespace SqliteDB
                 Telefono = txttelefono.Text
             };
 
-            bool ans = PersonaDAL.Instancia.Editar(person);
+            bool ans = _personaBLL.UpdateUser(person);
 
             if (ans)
             {
@@ -70,7 +74,7 @@ namespace SqliteDB
                     IdPersona = int.Parse(txtidpersona.Text)
                 };
 
-                bool respuesta = PersonaDAL.Instancia.Eliminar(person);
+                bool respuesta = _personaBLL.DeleteUser(person);
 
                 if (respuesta)
                 {
@@ -90,7 +94,7 @@ namespace SqliteDB
                 Telefono = txttelefono.Text
             };
 
-            bool ans = _personaBLL.Guardar(person);
+            bool ans = _personaBLL.InsertUser(person);
 
             if (ans)
             {
